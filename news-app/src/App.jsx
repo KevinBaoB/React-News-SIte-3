@@ -7,6 +7,7 @@ import ArticlePage from './pages/ArticlePage'
 
 import NewsData from './data/news.json'
 import AppNav from './components/AppNav/AppNav'
+import SectionPage from './pages/SectionPage'
 
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -19,6 +20,7 @@ function App() {
       title: article.title,
       abstract: article.abstract,
       byline: article.byline,
+      section: article.section,
       image: article.multimedia.length ? article.multimedia[0] : null,
       created_date: article.created_date
     }})
@@ -36,6 +38,7 @@ function App() {
 
           <Route path='/' element={<HomePage articles = {articles}/>} />
           <Route path='/articles/:articleID' element={<ArticlePage  getArticleById={getArticleById} />} />
+          <Route path='/sections/:sectionName' element={<SectionPage articles={articles} />} />
 
         </Routes>
       </Router>   

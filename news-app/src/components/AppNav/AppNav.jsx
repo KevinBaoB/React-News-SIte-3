@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 import sections from '../../data/sections.json'
 import "./appNav.css"
 
@@ -13,10 +14,11 @@ function AppNav(props) {
         Code Platoon News
       </Navbar.Brand>
       <Nav>
+        <Nav.Link href={'/'}>Home</Nav.Link>
       {
         navItems.map((navItem, index) => {
           return (
-            <Nav.Link key={index} onClick={() => console.log(navItem.value)}>
+            <Nav.Link key={index} href={`/#/sections/${navItem.value}`} onClick={() => console.log(navItem.value)}>
                 { navItem.label }
             </Nav.Link>
           )
